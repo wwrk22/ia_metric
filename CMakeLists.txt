@@ -12,4 +12,20 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
 	set(DEFAULT_BUILD_TYPE "Debug")
 endif()
 
+# Choose C++ standard and compile options
 set(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
+
+# for testing
+add_executable(${PROJECT_NAME}
+	./src/main.cpp
+	./src/metric/metric.cpp
+	./src/metric/revenue.cpp)
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+	-Wall
+	-Werror
+	-Wpedantic
+	-Wextra)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+	./src)
