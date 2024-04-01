@@ -19,7 +19,8 @@ set(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
 add_executable(${PROJECT_NAME}
 	./src/main.cpp
 	./src/metric/metric.cpp
-	./src/metric/revenue.cpp)
+	./src/metric/revenue.cpp
+	./src/metric/cost_of_goods_sold.cpp)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
 	-Wall
