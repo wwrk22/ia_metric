@@ -16,11 +16,18 @@ endif()
 set(CMAKE_CXX_STANDARD 17) # desired standard
 set(CMAKE_CXX_STANDARD_REQUIRED True) # require compiler to work with chosen standard
 
-# sample driver for manual testing
-add_executable(main src/main.cpp)
-
 # Variables in format @SOME_VAR@ are replaced by the variables in this CMakeLists.txt when the
 # output file is produced. The output file will be written to the project binary directory, so the
 # directory must be added to the list of include directories.
 configure_file(IA_MetricConfig.h.in IA_MetricConfig.h)
-target_include_directories(main PUBLIC ${PROJECT_BINARY_DIR})
+
+# ----------------------------------------------------
+# lib
+# ----------------------------------------------------
+add_library(${PROJECT_NAME}
+	src/metric/metric.cpp
+	src/metric/cost_of_goods_sold.cpp
+	src/metric/revenue.cpp)
+target_include_directories(${PROJECT_NAME}
+	PUBLIC
+		${PROJECT_SOURCE_DIR}/include)
