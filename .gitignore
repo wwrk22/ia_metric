@@ -36,6 +36,3 @@ build/
 *.exe
 *.out
 *.app
-
-# main file is only used for manual testing
-src/main.cpp
