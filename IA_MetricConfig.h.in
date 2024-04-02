@@ -1,0 +1,7 @@
+// This file is used as input for the configure_file() command in CMakeLists.txt.
+// Variables in format @SOME_VAR@ will be replaced by the same named variables from CMakeLists.txt.
+// e.g. IA_Metric_VERSION_MAJOR should be defined if project() command uses the project name IA_Metric
+//			and has a major VERSION declared.
+#define IA_Metric_VERSION_MAJOR @IA_Metric_VERSION_MAJOR@
+#define IA_Metric_VERSION_MINOR @IA_Metric_VERSION_MINOR@
+#define IA_Metric_VERSION_PATCH @IA_Metric_VERSION_PATCH@

@@ -1,6 +1,8 @@
 #ifndef IA_METRIC_H
 #define IA_METRIC_H
 
+namespace ia {
+
 class Metric {
 
 public:
@@ -19,5 +21,7 @@ protected:
 	// required to be initialized.
 	Metric(int year, int value, int annual_growth);
 };
+
+} // namespace ia
 
 #endif

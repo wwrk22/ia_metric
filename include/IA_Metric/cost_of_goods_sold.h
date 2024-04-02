@@ -4,6 +4,8 @@
 #include "metric.h"
 
 
+namespace ia {
+
 class CostOfGoodsSold : public Metric {
 
 public:
@@ -14,4 +16,6 @@ public:
 	~CostOfGoodsSold() override;
 };
 
+} // namespace ia
+	//
 #endif
