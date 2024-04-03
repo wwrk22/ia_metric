@@ -18,21 +18,22 @@ endif()
 # directory must be added to the list of include directories.
 configure_file(IA_MetricConfig.h.in IA_MetricConfig.h)
 
-# ----------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 # lib
-# ----------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 add_library(${PROJECT_NAME}
 	src/metric/metric.cpp
 	src/metric/cost_of_goods_sold.cpp
 	src/metric/revenue.cpp)
 
+# Allow compiler to find the header files when building the library.
 target_include_directories(${PROJECT_NAME}
-	# Allow compiler to find the header files when building the library.
-	# Add the include directory for the client CMakeLists.txt.
-	PUBLIC
+	PUBLIC # Any targets that link against this lib will have this path added to its include directories.
 		${PROJECT_SOURCE_DIR}/include)
 
-# Use an INTERFACE library to specify C++ standard
+# --------------------------------------------------------------------------------------------------
+# INTERFACE lib for compiler flags
+# --------------------------------------------------------------------------------------------------
 add_library(ia_metric_compiler_flags INTERFACE)
 target_compile_features(ia_metric_compiler_flags INTERFACE cxx_std_17)
 target_link_libraries(${PROJECT_NAME} PUBLIC ia_metric_compiler_flags)
