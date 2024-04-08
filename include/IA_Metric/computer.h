@@ -12,7 +12,14 @@ namespace ia {
 class Computer {
 
 public:
-	static void computeGrowth(std::vector<std::shared_ptr<Metric>>& metrics);
+
+	/**
+	 * @brief Computes and sets the annual growth for instances of a derived class
+	 * 				of the Metric class.
+	 *
+	 * @param metrics pointers to objects of a derived class of the Metric class
+	 */
+	static void computeGrowth(std::vector<Metric*>& metrics);
 
 };
 
