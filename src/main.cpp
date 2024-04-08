@@ -2,7 +2,10 @@
 
 #include <IA_Metric/revenue.h>
 #include <IA_Metric/cost_of_goods_sold.h>
+#include <IA_Metric/computer.h>
 
+#include <memory>
+#include <vector>
 #include <iostream>
 
 
@@ -12,11 +15,18 @@ int main(int argc, char* argv[]) {
 		<< IA_Metric_VERSION_MINOR << "."
 		<< IA_Metric_VERSION_MINOR << '\n';
 
-	ia::Revenue r(2023, 100, 5);
-	std::cout << r.year_ << ", " << r.value_ << ", " << r.annual_growth_ << '\n';
+	using namespace ia;
 
-	ia::CostOfGoodsSold c(2023, 20, 3);
-	std::cout << c.year_ << ", " << c.value_ << ", " << c.annual_growth_ << '\n';
+	std::vector<std::shared_ptr<Metric>> revenues;
+	revenues.emplace_back(std::make_shared<Revenue>(2022, 100, 0));
+	revenues.emplace_back(std::make_shared<Revenue>(2023, 130, 0));
+	revenues.emplace_back(std::make_shared<Revenue>(2024, 195, 0));
+
+	Computer::computeGrowth(revenues);
+
+	for (std::shared_ptr<Metric> m : revenues) {
+		std::cout << m->year_ << ", " << m->value_ << ", " << m->annual_growth_ << '\n';
+	}
 
 	return 0;
 }

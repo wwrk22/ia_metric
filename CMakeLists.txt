@@ -24,7 +24,8 @@ configure_file(IA_MetricConfig.h.in IA_MetricConfig.h)
 add_library(${PROJECT_NAME}
 	src/metric/metric.cpp
 	src/metric/cost_of_goods_sold.cpp
-	src/metric/revenue.cpp)
+	src/metric/revenue.cpp
+	src/computer/computer.cpp)
 
 # Allow compiler to find the header files when building the library.
 target_include_directories(${PROJECT_NAME}
@@ -37,3 +38,11 @@ target_include_directories(${PROJECT_NAME}
 add_library(ia_metric_compiler_flags INTERFACE)
 target_compile_features(ia_metric_compiler_flags INTERFACE cxx_std_17)
 target_link_libraries(${PROJECT_NAME} PUBLIC ia_metric_compiler_flags)
+
+# testing
+add_executable(main
+	src/main.cpp)
+target_include_directories(main
+	PRIVATE
+		${PROJECT_BINARY_DIR})
+target_link_libraries(main PRIVATE ${PROJECT_NAME})
