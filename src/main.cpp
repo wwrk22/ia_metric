@@ -1,8 +1,8 @@
 #include "IA_MetricConfig.h"
 
+#include <IA_Metric/revenue_set.h>
 #include <IA_Metric/revenue.h>
-#include <IA_Metric/cost_of_goods_sold.h>
-#include <IA_Metric/computer.h>
+#include <IA_Metric/metric.h>
 
 #include <memory>
 #include <vector>
@@ -17,16 +17,12 @@ int main(int argc, char* argv[]) {
 
 	using namespace ia;
 
-	std::vector<std::shared_ptr<Metric>> revenues;
-	revenues.emplace_back(std::make_shared<Revenue>(2022, 100, 0));
-	revenues.emplace_back(std::make_shared<Revenue>(2023, 130, 0));
-	revenues.emplace_back(std::make_shared<Revenue>(2024, 195, 0));
+	std::vector<std::pair<int, int>> years_and_values{ { 2022, 100 }, { 2023, 130 }, { 2024, 195 } };
+	RevenueSet revenue_set;
+	revenue_set.initMetrics(years_and_values);
 
-	Computer::computeGrowth(revenues);
-
-	for (std::shared_ptr<Metric> m : revenues) {
+	for (const std::unique_ptr<Metric>& m : revenue_set.metrics_)
 		std::cout << m->year_ << ", " << m->value_ << ", " << m->annual_growth_ << '\n';
-	}
 
 	return 0;
 }

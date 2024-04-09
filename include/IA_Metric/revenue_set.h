@@ -18,13 +18,18 @@ public:
 	RevenueSet() = default;
 	~RevenueSet() override = default;
 
+private:
 	/**
-	 * Create and store Revenue objects for each pair of year and revenue value
-	 * given.
+	 * Implements the factory method for creating a Revenue object that can be used
+	 * in place for a unique pointer to the base Metric class.
 	 *
-	 * @param  metrics  Pairs of year and revenue value.
+	 * @param  year_and_value  A pair of year and value representing revenue data.
+	 *
+	 * @return  A unique pointer of Metric class that points to an instance of
+	 * 					Revenue class.
 	 */
-	void initMetrics(const std::vector<std::pair<int, int>>& metrics) override;
+	std::unique_ptr<Metric> createMetric(const std::pair<int, int>& year_and_value) override;
+
 };
 
 } // namespace ia

@@ -26,10 +26,21 @@ public:
 	 *
 	 * @param  metrics  Pairs of the year and value of a metric type.
 	 */
-	virtual void initMetrics(const std::vector<std::pair<int, int>>& metrics) = 0;
+	void initMetrics(const std::vector<std::pair<int, int>>& metrics);
+
+	std::vector<std::unique_ptr<Metric>> metrics_;
 
 protected:
-	std::vector<std::unique_ptr<Metric>> metrics_;
+	/**
+	 * Factory method for derived classes to implement by returning a unique
+	 * pointer to an instace of a derived class of the Metric class.
+	 *
+	 * @param  year_and_value  A pair of year and value of a metric type.
+	 *
+	 * @return  A unique pointer to an instance of a derived class of the Metric
+	 * 					class.
+	 */
+	virtual std::unique_ptr<Metric> createMetric(const std::pair<int, int>& year_and_value) = 0;
 
 };
 
