@@ -1,5 +1,6 @@
 #include <IA_Metric/metric.h>
 
+
 namespace ia {
 
 Metric::Metric(int year, int value, int annual_growth)

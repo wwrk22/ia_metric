@@ -25,6 +25,8 @@ add_library(${PROJECT_NAME}
 	src/metric/metric.cpp
 	src/metric/cost_of_goods_sold.cpp
 	src/metric/revenue.cpp
+	src/metric/metric_set.cpp
+	src/metric/revenue_set.cpp
 	src/computer/computer.cpp)
 
 # Allow compiler to find the header files when building the library.
