@@ -1,4 +1,6 @@
 #include <IA_Metric/metric_set.h>
+#include <iostream>
+
 
 
 namespace ia {
@@ -8,6 +10,14 @@ void MetricSet::initMetrics(const std::vector<std::pair<int, int>>& years_and_va
 		std::unique_ptr<Metric> metric{ createMetric(year_and_value) };
 		metrics_.emplace_back(std::move(metric));
 	}
+
+	Computer::computeGrowth(metrics_);
+}
+
+int MetricSet::avgAnnualGrowth() {
+	double sum{};
+	for (const std::unique_ptr<Metric>& metric : metrics_) sum += metric->annual_growth_;
+	return round(sum / metrics_.size());
 }
 
 }

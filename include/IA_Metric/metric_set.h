@@ -1,8 +1,10 @@
 #ifndef IA_METRIC_SET_H
 #define IA_METRIC_SET_H
 
+#include "computer.h"
 #include "metric.h"
 
+#include <cmath>
 #include <memory>
 #include <utility>
 #include <vector>
@@ -27,6 +29,14 @@ public:
 	 * @param  metrics  Pairs of the year and value of a metric type.
 	 */
 	void initMetrics(const std::vector<std::pair<int, int>>& metrics);
+
+	/**
+	 * Compute the average of the annual growth values for all metric values in
+	 * this metric set.
+	 *
+	 * @return  The average annual growth of this metric set.
+	 */
+	int avgAnnualGrowth();
 
 	std::vector<std::unique_ptr<Metric>> metrics_;
 

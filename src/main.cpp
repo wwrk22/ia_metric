@@ -23,6 +23,7 @@ int main(int argc, char* argv[]) {
 
 	for (const std::unique_ptr<Metric>& m : revenue_set.metrics_)
 		std::cout << m->year_ << ", " << m->value_ << ", " << m->annual_growth_ << '\n';
+	std::cout << "avg annual growth = " << revenue_set.avgAnnualGrowth();
 
 	return 0;
 }
