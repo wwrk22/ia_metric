@@ -3,7 +3,6 @@
 
 namespace ia {
 
-Metric::Metric(int year, int value, int annual_growth)
-	: year_(year), value_(value), annual_growth_(annual_growth) {}
+Metric::Metric(int year, int value) : year_(year), value_(value) {}
 
 } // namespace ia

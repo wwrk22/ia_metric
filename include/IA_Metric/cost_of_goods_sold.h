@@ -6,13 +6,13 @@
 
 namespace ia {
 
+/**
+ * Repesents the Cost of Goods Sold metric for a company.
+ */
 class CostOfGoodsSold : public Metric {
 
 public:
-	// As of now, this class simply requires the values be provided by the caller
-	// of this constructor. There is no computation done by this class for `value`
-	// or `annual_growth`.
-	CostOfGoodsSold(int year, int value, int annual_growth);
+	CostOfGoodsSold(int year, int value);
 	~CostOfGoodsSold() override;
 };
 

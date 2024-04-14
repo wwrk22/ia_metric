@@ -21,7 +21,8 @@ public:
 	 * Computes and sets the annual growth for instances of a derived class of the
 	 * Metric class.
 	 *
-	 * @param metrics pointers to objects of a derived class of the Metric class
+	 * @param  metrics  Pointers to instances of a derived class of the Metric
+	 * 									class.
 	 */
 	static void computeGrowth(std::vector<std::unique_ptr<Metric>>& metrics);
 

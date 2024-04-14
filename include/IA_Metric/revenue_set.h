@@ -4,7 +4,6 @@
 #include "metric_set.h"
 #include "revenue.h"
 
-#include <utility>
 
 namespace ia {
 
@@ -23,12 +22,13 @@ private:
 	 * Implements the factory method for creating a Revenue object that can be used
 	 * in place for a unique pointer to the base Metric class.
 	 *
-	 * @param  year_and_value  A pair of year and value representing revenue data.
+	 * @param  year  The year of the recorded revenue.
+	 * @param  value  The value in millions (e.g. 123,123,123 would be 123).
 	 *
 	 * @return  A unique pointer of Metric class that points to an instance of
 	 * 					Revenue class.
 	 */
-	std::unique_ptr<Metric> createMetric(const std::pair<int, int>& year_and_value) override;
+	std::unique_ptr<Metric> createMetric(int year, int value) override;
 
 };
 

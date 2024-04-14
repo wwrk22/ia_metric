@@ -45,12 +45,14 @@ protected:
 	 * Factory method for derived classes to implement by returning a unique
 	 * pointer to an instace of a derived class of the Metric class.
 	 *
-	 * @param  year_and_value  A pair of year and value of a metric type.
+	 * @param  year  The year of the recorded metric value.
+	 * @param  value  The value in millions (e.g. 123,123,123
+	 * 								would be 123).
 	 *
 	 * @return  A unique pointer to an instance of a derived class of the Metric
 	 * 					class.
 	 */
-	virtual std::unique_ptr<Metric> createMetric(const std::pair<int, int>& year_and_value) = 0;
+	virtual std::unique_ptr<Metric> createMetric(int year, int value) = 0;
 
 };
 

@@ -1,7 +1,9 @@
 #include <IA_Metric/cost_of_goods_sold.h>
 
+namespace ia {
 
-ia::CostOfGoodsSold::CostOfGoodsSold(int year, int value, int annual_growth)
-	: Metric(year, value, annual_growth) {}
+CostOfGoodsSold::CostOfGoodsSold(int year, int value) : Metric(year, value) {}
 
-ia::CostOfGoodsSold::~CostOfGoodsSold() {}
+CostOfGoodsSold::~CostOfGoodsSold() {}
+
+}
