@@ -10,7 +10,7 @@ void MetricSet::initMetrics(const std::vector<std::pair<int, int>>& years_and_va
 	}
 
 	// Compute and set the annual growth for all years except the oldest.
-	Computer::computeGrowth(metrics_);
+	Computer::computeSetGrowth(metrics_);
 }
 
 int MetricSet::avgAnnualGrowth() {

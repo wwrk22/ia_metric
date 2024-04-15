@@ -24,7 +24,11 @@ public:
 	 * @param  metrics  Pointers to instances of a derived class of the Metric
 	 * 									class.
 	 */
-	static void computeGrowth(std::vector<std::unique_ptr<Metric>>& metrics);
+	static void computeSetGrowth(std::vector<std::unique_ptr<Metric>>& metrics);
+
+private:
+
+	static int computeGrowth(int prev, int curr);
 
 };
 
